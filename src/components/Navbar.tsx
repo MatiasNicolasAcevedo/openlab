@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(["translation"]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -98,9 +98,9 @@ const Navbar = () => {
         {/* Menú de navegación */}
         <div
           className={`${isMenuOpen ? "block" : "hidden"
-            } absolute top-20 left-0 w-full bg-blue-500 md:static md:block`}
+            } absolute top-[7rem] left-0 w-full py-6 bg-blue-500 md:static md:block z-10`}
         >
-          <div className="flex flex-col md:flex-row md:items-center md:justify-end md:w-auto">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-end md:w-auto">
             {/* Opciones del Menú */}
             <div className="flex flex-col md:flex-row md:items-center md:gap-12 text-sm font-semibold">
               <a
@@ -124,12 +124,12 @@ const Navbar = () => {
             </div>
 
             {/* Botón Iniciar Sesión */}
-            <div className="ml-10">
+            <div className="px-6 md:px-0 md:ml-10">
               <Link
                 to="/login"
                 className="bg-white text-[#3a23ff] text-sm font-medium px-4 py-2 rounded-lg shadow-md hover:bg-gray-100 w-full md:w-auto block text-center"
               >
-                Iniciar Sesión
+                {t("signIn")}
               </Link>
             </div>
 
